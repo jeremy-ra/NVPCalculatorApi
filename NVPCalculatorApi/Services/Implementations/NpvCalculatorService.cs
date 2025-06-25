@@ -5,9 +5,13 @@ namespace NVPCalculatorApi.Services.Implementations
 {
     public class NpvCalculatorService : INpvCalculatorService
     {
+        /// <summary>
+        /// Returns a list of NPV results based on the provided cash flows and rate parameters.
+        /// </summary>
+        /// <param name="npvInputDto"></param>
+        /// <returns></returns>
         public async Task<List<NpvResultDto>> CalculateNpv(NpvInputDto npvInputDto)
         {
-            // Validate input, avoid blocking with Task.Run for CPU-bound calculation
             return await Task.Run(() =>
             {
                 var results = new List<NpvResultDto>();
@@ -26,6 +30,12 @@ namespace NVPCalculatorApi.Services.Implementations
             });
         }
 
+        /// <summary>
+        /// Calculates the Net Present Value (NPV) for a given set of cash flows and a discount rate.
+        /// </summary>
+        /// <param name="cashFlows"></param>
+        /// <param name="discountRate"></param>
+        /// <returns></returns>
         private double CalculateNpv(List<double> cashFlows, double discountRate)
         {
             double npv = 0.0;

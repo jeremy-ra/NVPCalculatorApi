@@ -6,16 +6,15 @@ using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// CORS: Allow any origin for development use only
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
         policy
             //.WithOrigins(
-            //    "http://localhost:3000" // Frontend localhost          
+            //    "http://localhost:3000" // Frontend url          
             //)
-            .AllowAnyOrigin()
+            .AllowAnyOrigin() // CORS: Allow any origin for development use only
             .AllowAnyHeader()
             .AllowAnyMethod();
     });

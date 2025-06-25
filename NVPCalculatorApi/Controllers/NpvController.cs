@@ -51,9 +51,8 @@ namespace NVPCalculatorApi.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error calculating NPV.");
-                throw; // Handled by global exception handler
-                //return StatusCode(500, "An error occurred while calculating NPV.");
+                _logger.LogError(ex, "Error calculating NPV.");               
+                return StatusCode(500, "An error occurred while calculating NPV.");
             }
         }
 
