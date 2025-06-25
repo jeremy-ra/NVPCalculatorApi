@@ -1,0 +1,140 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm" class="npv-form">
+  <h3>NPV</h3>
+    <div>
+      <label for="cashFlows">Cash Flows (comma-separated):</label>
+      <input
+        id="cashFlows"
+        name="cashFlows"
+        [(ngModel)]="cashFlows"
+        required
+        placeholder="e.g. -1000, 300, 400, 500"
+      />
+    </div>
+  
+    <div>
+      <label for="lowerRate">Lower Bound Discount Rate (%):</label>
+      <input
+        id="lowerRate"
+        name="lowerRate"
+        type="number"
+        [(ngModel)]="lowerRate"
+        min="0"
+        step="0.01"
+        required
+      />
+    </div>
+  
+    <div>
+      <label for="upperRate">Upper Upper Discount Rate (%):</label>
+      <input
+        id="upperRate"
+        name="upperRate"
+        type="number"
+        [(ngModel)]="upperRate"
+        min="0"
+        step="0.01"
+        required
+      />
+    </div>
+  
+    <div>
+      <label for="increment">Discount Rate Increment (%):</label>
+      <input
+        id="increment"
+        name="increment"
+        type="number"
+        [(ngModel)]="increment"
+        min="0.01"
+        step="0.01"
+        required
+      />
+    </div>
+  
+    <button type="submit" [disabled]="form.invalid || loading">Calculate NPV</button>
+  
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <p *ngIf="loading">Calculating...</p>
+  </form>
+
+  <app-npv-chart [results]="results"></app-npv-chart>
+  <!-- <form (ngSubmit)="onSubmit()" #form="ngForm" class="container mt-4">
+    <div class="row mb-3">
+      <div class="col-12">
+        <label for="cashFlows" class="form-label">Cash Flows (comma-separated):</label>
+        <input
+          type="text"
+          id="cashFlows"
+          name="cashFlows"
+          [(ngModel)]="cashFlows"
+          required
+          class="form-control"
+          placeholder="e.g. -1000, 300, 400, 500"
+        />
+      </div>
+    </div>
+  
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="lowerRate" class="form-label">Lower Discount Rate (%):</label>
+        <input
+          type="number"
+          id="lowerRate"
+          name="lowerRate"
+          [(ngModel)]="lowerRate"
+          min="0"
+          step="0.01"
+          required
+          class="form-control"
+        />
+      </div>
+      <div class="col-md-6 mt-3 mt-md-0">
+        <label for="upperRate" class="form-label">Upper Discount Rate (%):</label>
+        <input
+          type="number"
+          id="upperRate"
+          name="upperRate"
+          [(ngModel)]="upperRate"
+          min="0"
+          step="0.01"
+          required
+          class="form-control"
+        />
+      </div>
+    </div>
+  
+    <div class="row mb-3">
+      <div class="col-12 col-md-6">
+        <label for="increment" class="form-label">Discount Rate Increment (%):</label>
+        <input
+          type="number"
+          id="increment"
+          name="increment"
+          [(ngModel)]="increment"
+          min="0.01"
+          step="0.01"
+          required
+          class="form-control"
+        />
+      </div>
+    </div>
+  
+    <div class="row mb-3">
+      <div class="col-12">
+        <button
+          type="submit"
+          class="btn btn-primary w-100"
+          [disabled]="form.invalid || loading"
+        >
+          Calculate NPV
+        </button>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-12">
+        <p class="text-danger fw-bold" *ngIf="errorMessage">{{ errorMessage }}</p>
+        <p *ngIf="loading">Calculating...</p>
+      </div>
+    </div>
+  </form> -->
+  

@@ -29,8 +29,8 @@ namespace NVPCalculatorApi.Tests
 
             Assert.NotNull(result);
             Assert.Equal(2, result.Count);
-            Assert.Equal(1.0, result[0].DiscountRate);
-            Assert.Equal(2.0, result[1].DiscountRate);
+            Assert.Equal(1.0, result[0].Rate);
+            Assert.Equal(2.0, result[1].Rate);
         }
 
         [Fact]
@@ -83,7 +83,7 @@ namespace NVPCalculatorApi.Tests
             var results = await _service.CalculateNpv(request);
 
             Assert.Single(results);
-            Assert.Equal(10.0, results[0].DiscountRate);
+            Assert.Equal(10.0, results[0].Rate);
         }
 
         [Fact]

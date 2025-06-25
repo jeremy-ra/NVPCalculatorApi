@@ -21,7 +21,7 @@ namespace NVPCalculatorApi.Services.Implementations
                     double npv = CalculateNpv(npvInputDto.CashFlows, rate);
                     results.Add(new NpvResultDto
                     {
-                        DiscountRate = Math.Round(rate, 2),
+                        Rate = Math.Round(rate, 2),
                         Npv = Math.Round(npv, 4)
                     });
                 }

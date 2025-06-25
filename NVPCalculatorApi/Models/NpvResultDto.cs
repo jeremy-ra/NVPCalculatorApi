@@ -2,7 +2,7 @@
 {
     public class NpvResultDto
     {
-        public double DiscountRate { get; set; }
+        public double Rate { get; set; }
         public double Npv { get; set; }
     }
 }
